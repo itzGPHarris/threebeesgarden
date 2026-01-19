@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
@@ -12,17 +13,23 @@ import CloseIcon from '@mui/icons-material/Close';
 import { brandColors } from '@/theme/theme';
 
 const navItems = [
-  { label: 'HOME', href: '#home' },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'GALLERY', href: '#gallery' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: 'HOME', href: '/' },
+  { label: 'ABOUT', href: '/about' },
+  { label: 'GALLERY', href: '/gallery' },
+  { label: 'CONTACT', href: '/#contact' },
 ];
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const isActive = (href: string) => {
+    if (href === '/') return location.pathname === '/';
+    return location.pathname.startsWith(href);
   };
 
   return (
@@ -38,9 +45,10 @@ export default function Navigation() {
         {navItems.map((item) => (
           <Link
             key={item.href}
-            href={item.href}
+            component={RouterLink}
+            to={item.href}
             sx={{
-              color: 'text.primary',
+              color: isActive(item.href) ? brandColors.magenta : 'text.primary',
               fontSize: '0.875rem',
               fontWeight: 500,
               letterSpacing: '0.1em',
@@ -92,7 +100,8 @@ export default function Navigation() {
           {navItems.map((item) => (
             <ListItem key={item.href} disablePadding>
               <ListItemButton
-                href={item.href}
+                component={RouterLink}
+                to={item.href}
                 onClick={handleDrawerToggle}
                 sx={{
                   textAlign: 'center',
@@ -106,6 +115,7 @@ export default function Navigation() {
                   primaryTypographyProps={{
                     fontWeight: 500,
                     letterSpacing: '0.1em',
+                    color: isActive(item.href) ? brandColors.magenta : 'text.primary',
                   }}
                 />
               </ListItemButton>

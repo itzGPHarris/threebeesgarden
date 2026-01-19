@@ -1,3 +1,4 @@
+import { Link as RouterLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Logo from '@/components/Logo';
@@ -9,10 +10,13 @@ export default function Header() {
       <Container maxWidth="lg">
         {/* Logo */}
         <Box
+          component={RouterLink}
+          to="/"
           sx={{
             display: 'flex',
             justifyContent: 'center',
             py: { xs: 3, md: 4 },
+            textDecoration: 'none',
           }}
         >
           <Logo width={280} />
