@@ -207,45 +207,46 @@ export default function GalleryPage() {
               <CloseIcon fontSize="large" />
             </IconButton>
 
-            {/* Navigation - Previous */}
-            <IconButton
-              onClick={goToPrev}
-              aria-label="Previous image"
-              sx={{
-                position: 'absolute',
-                left: { xs: -20, md: -60 },
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: 'white',
-                bgcolor: 'rgba(0,0,0,0.3)',
-                '&:hover': { 
-                  bgcolor: 'rgba(0,0,0,0.6)',
-                  color: brandColors.magenta,
-                },
-              }}
-            >
-              <ChevronLeftIcon fontSize="large" />
-            </IconButton>
+           {/* Navigation - Previous */}
+<IconButton
+  onClick={goToPrev}
+  aria-label="Previous image"
+  sx={{
+    position: 'absolute',
+    left: 16,
+    top: '50%',
+    transform: 'translateY(-50%)',
+    color: 'white',
+    bgcolor: 'rgba(0,0,0,0.5)',
+    '&:hover': { 
+      bgcolor: 'rgba(0,0,0,0.8)',
+      color: brandColors.magenta,
+    },
+  }}
+>
+  <ChevronLeftIcon fontSize="large" />
+</IconButton>
 
-            {/* Navigation - Next */}
-            <IconButton
-              onClick={goToNext}
-              aria-label="Next image"
-              sx={{
-                position: 'absolute',
-                right: { xs: -20, md: -60 },
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: 'white',
-                bgcolor: 'rgba(0,0,0,0.3)',
-                '&:hover': { 
-                  bgcolor: 'rgba(0,0,0,0.6)',
-                  color: brandColors.magenta,
-                },
-              }}
-            >
-              <ChevronRightIcon fontSize="large" />
-            </IconButton>
+{/* Navigation - Next */}
+<IconButton
+  onClick={goToNext}
+  aria-label="Next image"
+  sx={{
+    position: 'absolute',
+    right: 16,
+    top: '50%',
+    transform: 'translateY(-50%)',
+    color: 'white',
+    bgcolor: 'rgba(0,0,0,0.5)',
+    '&:hover': { 
+      bgcolor: 'rgba(0,0,0,0.8)',
+      color: brandColors.magenta,
+    },
+  }}
+>
+  <ChevronRightIcon fontSize="large" />
+</IconButton>
+
 
             {/* Main Image */}
             <Box
